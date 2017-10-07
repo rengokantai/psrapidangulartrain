@@ -78,3 +78,38 @@ export class AppComponent implements OnInit{
   }
 }
 ```
+### 6 HTTP Actions
+data.service.ts
+```
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/throw';
+@Injectable()
+export class DataService{
+  constructor(private http:Http){
+  }
+  getPostById(id:number):Observable<Post>{
+    let url = ''+id;
+    return this.http.get(url).map(this.mapPost).catch(this.handleError);
+  }
+  handleError(res:Response|any):Observable<any>{
+    let errorMessage = 'error';
+    if (res instanceof Response){
+      const body = re.json()||'';
+      const err = body.error || JSON.stringify(body);
+      errorMessage = ${res.status} - ${res.statusText}${err};
+     }
+    return Observable.throw(errorMessage);
+  }
+  mapPost(res: Response):Post{
+    let post: Post = res.json();
+    return post;
+  }
+  createPost(): Observable<Response>{
+    let url = '';
+    let post = {userId:1,title:'',body:''};
+    return this.http.post(url,post).map(this.mapPost).catch(this.handleError);
+  }
+}
+```
