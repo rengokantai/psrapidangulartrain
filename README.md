@@ -61,3 +61,20 @@ export class AppComponent implements OnInit{
   }
 }
 ```
+Or
+```
+@Component({
+  selector: 'app-root',
+  template:`<h3 *ngFor = "let post of blogPosts|async">
+    {{post.title}}
+  </h3>`,
+  styleUrls:'[./app.component.css']
+})
+export class AppComponent implements OnInit{
+  blogPosts: Observable<Post[]>;
+  constructor(private dataService: DataService){};
+  ngOnInit(){
+    this.blogPosts = this.dataService.getPosts();
+  }
+}
+```
