@@ -18,8 +18,11 @@ export class DataService{
   handleError(res:Response|any):Observable<any>{
     let errorMessage = 'error';
     if (res instanceof Response){
-    }
-    return Observable.throw('error');
+      const body = re.json()||'';
+      const err = body.error || JSON.stringify(body);
+      errorMessage = ${res.status} - ${res.statusText}${err};
+     }
+    return Observable.throw(errorMessage);
   }
   mapPost(res: Response):Post{
     let post: Post = res.json();
