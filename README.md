@@ -117,3 +117,12 @@ export class DataService{
 ### 7 HTTP Headers and Options
 - How do we specify an HTTP Header?
 - Import Headers from @angular/http, create a Headers object
+```
+  createPost(): Observable<Response>{
+    let url = '';
+    let post = {userId:1,title:'',body:''};
+    let headers = new Headers({'Content-Type':'application/json'})
+    let options = new RequestOptions({headers:headers});
+    return this.http.post(url,post, options).map(this.mapPost).catch(this.handleError);
+  }
+```
