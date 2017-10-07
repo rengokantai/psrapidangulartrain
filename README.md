@@ -113,3 +113,7 @@ export class DataService{
   }
 }
 ```
+
+### 7 HTTP Headers and Options
+- How do we specify an HTTP Header?
+- Import Headers from @angular/http, create a Headers object
