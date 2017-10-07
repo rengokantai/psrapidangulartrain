@@ -126,3 +126,15 @@ export class DataService{
     return this.http.post(url,post, options).map(this.mapPost).catch(this.handleError);
   }
 ```
+more params:
+```
+  createPost(): Observable<Response>{
+    let url = '';
+    let post = {userId:1,title:'',body:''};
+    let headers = new Headers({'Content-Type':'application/json'})
+    let params = new URLSearchParams();
+    params.append('id':'1');
+    let options = new RequestOptions({headers:params});
+    return this.http.post(url,post, options).map(this.mapPost).catch(this.handleError);
+  }
+```
