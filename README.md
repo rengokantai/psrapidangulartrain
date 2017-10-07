@@ -30,3 +30,34 @@ export class DataService{
   }
 }
 ```
+
+### 4 Subscribing to Observables
+app.component.ts
+```
+export class AppComponent implement OnInit{
+  constructor(private dataService:DataService){
+    
+  };
+  ngOnInit(){
+    this.dataService.getPostById(1).subscribe((data:Post)=>console.log(data), (err)=>console.log(JSON.stringify(err));
+  }
+}
+```
+### 5 Async Pipe
+app.component.ts
+```
+@Component({
+  selector: 'app-root',
+  template:`<h3 *ngIf="blogPost|async as post">
+    {{post.title}}
+  </h3>`,
+  styleUrls:'[./app.component.css']
+})
+export class AppComponent implements OnInit{
+  blogPost: Observable<Post>;
+  constructor(private dataService: DataService){};
+  ngOnInit(){
+    this.blogPost = this.dataService.getPostById(1);
+  }
+}
+```
