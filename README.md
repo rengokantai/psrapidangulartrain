@@ -138,3 +138,19 @@ more params:
     return this.http.post(url,post, options).map(this.mapPost).catch(this.handleError);
   }
 ```
+### 8 More Observable Operators
+do
+```
+getPostById(id:number):Observable<Post>{
+  let url = ''+id;
+  return this.http.get(url).do(this.someFunc).map(this.mapPost).catch(this.handleError);
+}
+```
+convert to promise
+```
+return this.http.get(url).do(this.someFunc).map(this.mapPost).catch(this.handleError).finally(this.func).toPromise();
+```
+How do we replace an observable with a new one? switchMap
+```
+return this.get(url).map(this.mapPost).switchMap(()=>Observable.of({id:22}).catch(this..
+```
