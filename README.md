@@ -146,6 +146,10 @@ getPostById(id:number):Observable<Post>{
   return this.http.get(url).do(this.someFunc).map(this.mapPost).catch(this.handleError);
 }
 ```
+
+
+
+
 convert to promise
 ```
 return this.http.get(url).do(this.someFunc).map(this.mapPost).catch(this.handleError).finally(this.func).toPromise();
@@ -153,4 +157,55 @@ return this.http.get(url).do(this.someFunc).map(this.mapPost).catch(this.handleE
 How do we replace an observable with a new one? switchMap
 ```
 return this.get(url).map(this.mapPost).switchMap(()=>Observable.of({id:22}).catch(this..
+```
+
+
+## 7. Forms
+Need ```import { Formmodule } from '@angular/forms';```
+
+### 2 Template Driven Form Setup
+
+job-position-form.component.html
+```
+<form #form="ngForm">
+  <input name="title">
+  <button type="submit">submit</button>
+</form>
+{{ form.value|json}}
+```
+
+### 3 Form Fields and Data Binding
+job-position.ts
+```
+export class JobPosition{
+  title: string;
+  isFullTime: boolean;
+  department:string;
+}
+```
+job-position-component.ts
+```
+@Component({
+  selector: '',
+  templateUrl: './job-position-form.component.html',
+  styles:['']
+})
+exports class JobPositionForm{
+  model = new JobPosition();
+}
+```
+
+
+job-position-form.component.html  
+Question:
+- How can we bind to ,odel.isFullTime uisng a checkbox
+```
+<form #form="ngForm">
+  <input name="title" [(ngModel)]="model.title">
+  <input type="checkbox" name="isFullTime" id="fullTime"
+  [(ngModel)]="model.isFullTime">
+  <label for="isFullTime">Full time</label>
+  <button type="submit">submit</button>
+</form>
+{{ form.value|json}}
 ```
