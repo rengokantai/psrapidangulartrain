@@ -317,3 +317,34 @@ RouterModule.forRoot([
     ]
 ])
 ```
+### 5 The Router Service
+```
+import { ActivatedRoute, Router } from '@angular/router';
+```
+Question
+- How do we inject ActivatedRoute and Router?
+- Add in constructor  
+
+employer-list.component.ts
+```
+@Component({
+  selector:'',
+  template:`
+  <button (click)="onClick()">click</button>
+  `,
+  styles:[]
+  
+})
+export class EmployeeListComponent{
+  constructor(private activateRoute: Activate,rivate router: Router){}
+  onClick(){
+  }
+}
+```
+Question
+- How do we navigate to employee if it is up one segment in the route tree?
+- ```router.navigator('../employee','5')```  
+- How to get current url
+- ```this.activateRoute.url.subscribe(segments=>console.log(segments.length)); //2```
+- ```this.activateRoute.url.subscribe(segments=>console.log(segments[0].path)); //employee2```
+
