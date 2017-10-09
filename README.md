@@ -216,3 +216,39 @@ Question:
   <option *ngFor="let d of departments" [value]="d">{{d}}</option>
 </select>
 ```
+### 4 State and Validation Classes and Properties
+Question:
+- What css class is applied once a control loses focus
+- ng-touched  
+job-position-form.component.css
+```
+ng-touched:not(form){border:1px solid green;}
+```
+Question:
+- What css class is applied before a control receives focus
+- ng-untouched  
+job-position-form.component.css
+```
+ng-untouched:not(form){border:1px solid blue;}
+```
+Question:
+- What css class is applied before a control's value changes?
+- ng-pristine  
+
+job-position-form.component.css
+```
+ng-untouched:not(form){border:1px solid blue;}
+```
+
+Question:
+- What css class is applied when a control's value is valid?
+- ng-valid
+
+job-position-form.component.css
+```
+ng-untouched:not(form){border:1px solid blue;}
+```
+```
+<form
+</form>
+```
