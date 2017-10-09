@@ -255,11 +255,28 @@ ng-valid:not(form){border:1px solid blue;}
 </form>
 ```
 
-Question:
+Question: __ this part is not easy to remember__
 - How can we access properties on NgModel?
 - template reference variable
 
 ```
 <input #title="ngModel" name="title" [(ngModel)]="model.title">
 <div [hidden]="title.valid||title.pristine"> show</div>
+```
+
+### 5 Submitting Forms
+Question:
+- How can we hide the submit button until the form is valid?
+- Bind to the button's disabled property
+```
+<button type="submit" [disabled]="form.form.invalid">
+  submit
+</button>
+```
+Question:
+- How do we call a method on our Component for a submit?
+- Bind to the ngSubmit event
+- assuming onSubmit is a method of component
+```
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
 ```
