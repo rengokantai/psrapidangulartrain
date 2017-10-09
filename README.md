@@ -220,6 +220,7 @@ Question:
 Question:
 - What css class is applied once a control loses focus
 - ng-touched  
+
 job-position-form.component.css
 ```
 ng-touched:not(form){border:1px solid green;}
@@ -227,6 +228,7 @@ ng-touched:not(form){border:1px solid green;}
 Question:
 - What css class is applied before a control receives focus
 - ng-untouched  
+
 job-position-form.component.css
 ```
 ng-untouched:not(form){border:1px solid blue;}
@@ -237,18 +239,27 @@ Question:
 
 job-position-form.component.css
 ```
-ng-untouched:not(form){border:1px solid blue;}
+ng-pristine:not(form){border:1px solid blue;}
 ```
 
 Question:
-- What css class is applied when a control's value is valid?
-- ng-valid
+- What css class is applied when a control's value is valid/invalid?
+- ng-valid/ng-invalid
 
 job-position-form.component.css
 ```
-ng-untouched:not(form){border:1px solid blue;}
+ng-valid:not(form){border:1px solid blue;}
 ```
 ```
 <form
 </form>
+```
+
+Question:
+- How can we access properties on NgModel?
+- template reference variable
+
+```
+<input #title="ngModel" name="title" [(ngModel)]="model.title">
+<div [hidden]="title.valid||title.pristine"> show</div>
 ```
