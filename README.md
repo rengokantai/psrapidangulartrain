@@ -280,3 +280,25 @@ Question:
 ```
 <form #form="ngForm" (ngSubmit)="onSubmit(form)">
 ```
+## 8. Routing and Navigation
+### 2 Router Configuration
+```
+<button routerLink="/employee-list routerLinkActive="cssclass"></button>
+```
+
+### 3 Route Settings
+remember:__pathMatch__  
+app.module.ts
+```
+imports:[
+RouterModule.forRoot([
+{path:'',redirectTo:'/',pathMatch:'full'}
+])
+]
+```
+Question
+- unmatch route?
+- **
+```
+{path:'**',component:PageNotFound}
+```
