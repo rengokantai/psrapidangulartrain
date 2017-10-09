@@ -198,7 +198,7 @@ exports class JobPositionForm{
 
 job-position-form.component.html  
 Question:
-- How can we bind to ,odel.isFullTime uisng a checkbox
+- How can we bind to model.isFullTime using a checkbox
 ```
 <form #form="ngForm">
   <input name="title" [(ngModel)]="model.title">
@@ -207,5 +207,12 @@ Question:
   <label for="isFullTime">Full time</label>
   <button type="submit">submit</button>
 </form>
-{{ form.value|json}}
+{{ form.value|json }}
+```
+Question:
+- How can we bind to a select tag with options for department
+```
+<select [(ngModel)]="model.department" name="department">
+  <option *ngFor="let d of departments" [value]="d">{{d}}</option>
+</select>
 ```
