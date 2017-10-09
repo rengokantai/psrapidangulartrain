@@ -283,6 +283,9 @@ Question:
 ## 8. Routing and Navigation
 ### 2 Router Configuration
 ```
+import {RouterModule,Routes} from '@angular/router';
+```
+```
 <button routerLink="/employee-list routerLinkActive="cssclass"></button>
 ```
 
@@ -301,4 +304,16 @@ Question
 - **
 ```
 {path:'**',component:PageNotFound}
+```
+### 4 Child Routes
+```
+RouterModule.forRoot([
+  {path:'org-chart',
+    component:OrgChartComponent,
+    children:[
+      {path:'child1',
+      component:child1Component
+      },{}
+    ]
+])
 ```
