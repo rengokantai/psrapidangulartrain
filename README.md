@@ -37,7 +37,7 @@ app.component.ts
 export class AppComponent implement OnInit{
   constructor(private dataService:DataService){
     
-  };
+  
   ngOnInit(){
     this.dataService.getPostById(1).subscribe((data:Post)=>console.log(data), (err)=>console.log(JSON.stringify(err));
   }
@@ -374,3 +374,33 @@ export class CanActivateGuard implements CanActivate {
   }
 }
 ```
+```
+canDeactivate
+canActivateChild
+```
+## 9. Modules, AOT Compilation, and Lazy Loading
+### 2 NgModule
+Question
+- What do we list in the declarations array?
+- Components Directives and Pipes
+- What do we list in the imports array?
+- Modules which are exporting items we need
+- What do we list in the providers array?
+- Providers of services we want Angular to inject into our application
+- How do we set up an NgModule which has a single component for use by others?  
+
+visual-components.module.ts
+```
+import {NgModule} from '@angular/core';
+import {MyVisualComponent} from ./my-visual.component';
+@NgModule({
+  declarations:[
+    MyVisualComponent
+  ],
+  exports:[
+    MyVisualComponent
+  ]
+})
+export class VisualComponentsModule{}
+```
+
