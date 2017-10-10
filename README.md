@@ -352,4 +352,25 @@ Question
 - Example ```let id= this.activeRoute.anapshot.paramMap.get('id');```
 - How can we test for the existence of a parameter using paramMap?
 - ```paramMap.has()```
+- ```paramMap.keys()```
+- How can we subscribe to changing parameters?
+- Use ```activatedRoute.paramMap```
 
+
+### 6 Route Guards
+Question
+- How do we control if this route can be activated? 
+- Use the canActivate property
+```
+canActivate:[CanActivateGuard]
+```
+create a service  
+
+can-activate-guard.service.ts
+```
+export class CanActivateGuard implements CanActivate {
+  canActivate(route:ActivatedRouteSnapshot,state:RouterStateSnapshot):Observable<boolean>|Promise<boolean>|booleanP
+    return true;
+  }
+}
+```
