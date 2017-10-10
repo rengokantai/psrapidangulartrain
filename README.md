@@ -347,4 +347,9 @@ Question
 - How to get current url
 - ```this.activateRoute.url.subscribe(segments=>console.log(segments.length)); //2```
 - ```this.activateRoute.url.subscribe(segments=>console.log(segments[0].path)); //employee2```
+- How can we access a parameter's value without subscribing to an Observable?
+- ```activateRoute.snapshot```
+- Example ```let id= this.activeRoute.anapshot.paramMap.get('id');```
+- How can we test for the existence of a parameter using paramMap?
+- ```paramMap.has()```
 
