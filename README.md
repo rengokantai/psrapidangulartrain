@@ -409,7 +409,7 @@ Question
 - Will an AppModule usually export anything?
 - No
 
-### 3 NgModule and Routing
+### 4 NgModule and Routing
 Question
 - How can we set up child routing in FeatureModule
 - import a call to ```RouterModule.forChild([])```
@@ -417,3 +417,12 @@ Question
 - No
 - Can you call RouterModule.forChild() Many times from different Modules?
 - Yes
+
+### 5 Module Organization
+Question
+- What module should contain single use classes for the entire application?
+- CoreModule
+- What module may hold all routing information?
+- AppRoutingModule
+- How can we organize distince areas of our application?
+- FeatureModule
