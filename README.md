@@ -404,3 +404,16 @@ import {MyVisualComponent} from ./my-visual.component';
 export class VisualComponentsModule{}
 ```
 
+### 3 Importing and Exporting
+Question
+- Will an AppModule usually export anything?
+- No
+
+### 3 NgModule and Routing
+Question
+- How can we set up child routing in FeatureModule
+- import a call to ```RouterModule.forChild([])```
+- Will you need more than one call to RoterModule.forRoot()?
+- No
+- Can you call RouterModule.forChild() Many times from different Modules?
+- Yes
