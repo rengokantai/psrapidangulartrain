@@ -11,6 +11,80 @@ Question
 <button bind-disabled="""
 <button [disabled]=
 ```
+### 5 Event Binding
+```
+@Component(
+template:`<button (click)="onClick($event)">view</button>`
+)
+export class PositionComponent{
+  onClick(event:any){
+    this.position=event.target.textContent;
+  }
+}
+```
+#### 02:00
+inline style
+```
+<button (click)="position = $event.target.textContent"></button
+{{position}}
+```
+(click)=on-click
+
+### 6 Working with Classes, Styles, and Attributes
+```
+<h3 [class]="titleClass">
+</h3>
+export class PositionComponent{
+  jobTitle="";
+  titleClass="red-text";
+}
+```
+Question
+- How can we bid multiple classes at once?
+- ```[ngClass]="titleClasses"```
+
+```
+<h3 [ngClass]="titleClasses">
+</h3>
+export class PositionComponent{
+  jobTitle="";
+  titleClass={
+    "red-text":false,
+    "purple-text":true
+  };
+}
+```
+
+
+### 7 Component Styling Wrap-up
+Question
+- How do we select this component instance?
+- :host
+```
+@Component({
+selector:'app',
+styles:[`
+  :host{
+    color:red;
+  }
+`]
+})
+```
+Others
+- deep
+```
+@Component({
+selector:'app',
+template:`
+<h3>test</h3>
+`,
+styles:[`
+  h3 /deep/{
+    color:red;
+  }
+`]
+})
+```
 ## 6. Data Access with HTTP and RxJS
 ### 3 Using Http
 ```
