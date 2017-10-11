@@ -54,8 +54,36 @@ export class PositionComponent{
   };
 }
 ```
+access some property
+```
+<h3 [class.red-text]="isRed">
+</h3>
+```
+Question
+- How can we bind a CSS style to our h3 tag?
+-```[style.color]="title"```
+-```[style.font-size.px]="size"```
+-```[style.font-size.%]="size"```  
 
-
+ngStyle
+```
+<h3 [ngStyle]="fontStyles">
+</h3>
+export class PositionComponent{
+  jobTitle="";
+  fontStyles={
+    color: 'green',
+    "font-size.px":30
+  };
+}
+```
+attr
+```
+<div class="" [attr.data-title]="jobTitle"></div>
+export class PositionComponent{
+  jobTitle="";
+}
+```
 ### 7 Component Styling Wrap-up
 Question
 - How do we select this component instance?
