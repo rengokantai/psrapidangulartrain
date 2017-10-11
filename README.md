@@ -1,5 +1,16 @@
 # psrapidangulartrain
+## 3. Components
+### 3 Interpolation
+Question
+- Can a template access a JavaScript global object? {{Math.random()}}
+- No
 
+
+### 4 Property Binding
+```
+<button bind-disabled="""
+<button [disabled]=
+```
 ## 6. Data Access with HTTP and RxJS
 ### 3 Using Http
 ```
