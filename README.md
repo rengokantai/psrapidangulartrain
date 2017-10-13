@@ -539,3 +539,28 @@ Question
 - AppRoutingModule
 - How can we organize distince areas of our application?
 - FeatureModule
+
+## 10. Additional Angular features
+### 4 Animation
+```
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+```
+example
+```
+@Component({
+  selector:'app-root',
+  template:`<app-org-chart [@myAnimation]="state" (click)="animate()">
+  </app-org-chart>`,
+  styleUrls:['./app.component.css'],
+  animations:[
+  ]
+})
+export class AppComponent{
+  state="small";
+  animateMe(){
+    this.state = (this.state==='small'?;'large':'small');
+  }
+}
+
+
+```
